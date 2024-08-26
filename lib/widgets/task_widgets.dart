@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app_firebase/screens/edit_note_page.dart';
 
 class TaskWidgets extends StatefulWidget {
   const TaskWidgets({super.key});
@@ -123,30 +124,39 @@ class _TaskWidgetsState extends State<TaskWidgets> {
             ),
           ),
           const SizedBox(width: 10),
-          Container(
-            width: 90,
-            height: 28,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 215, 238, 238),
-              borderRadius: BorderRadius.circular(18),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 4, top: 4, left: 10),
-              child: Row(
-                children: [
-                  Image.asset('assets/images/icon_edit.png'),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  const Text(
-                    "Edit",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const EditNotePage(),
+                ),
+              );
+            },
+            child: Container(
+              width: 90,
+              height: 28,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 215, 238, 238),
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 4, top: 4, left: 10),
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/icon_edit.png'),
+                    const SizedBox(
+                      width: 10,
                     ),
-                  ),
-                ],
+                    const Text(
+                      "Edit",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           )

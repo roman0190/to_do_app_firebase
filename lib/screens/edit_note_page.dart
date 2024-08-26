@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AddNotePage extends StatefulWidget {
-  const AddNotePage({super.key});
+class EditNotePage extends StatefulWidget {
+  const EditNotePage({super.key});
 
   @override
-  State<AddNotePage> createState() => _AddNotePageState();
+  State<EditNotePage> createState() => _EditNotePageState();
 }
 
-class _AddNotePageState extends State<AddNotePage> {
+class _EditNotePageState extends State<EditNotePage> {
   final title = TextEditingController();
   final subtitle = TextEditingController();
 
@@ -48,7 +48,7 @@ class _AddNotePageState extends State<AddNotePage> {
             backgroundColor: Colors.greenAccent,
             minimumSize: const Size(170, 48),
           ),
-          child: Text("Add Task"),
+          child: Text("Save Task"),
         ),
         ElevatedButton(
           onPressed: () {
