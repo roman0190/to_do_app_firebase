@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:to_do_app_firebase/data/auth_data.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback show;
@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget loginBotton() {
     return GestureDetector(
       onTap: () {
-        
+        AuthRemote().login(email.text, password.text);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -159,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/7.png'),
+            image: AssetImage('assets/images/5.png'),
             fit: BoxFit.cover,
           ),
         ),

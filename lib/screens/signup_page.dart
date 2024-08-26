@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app_firebase/data/auth_data.dart';
 
 class SignupPage extends StatefulWidget {
   final VoidCallback show;
@@ -15,7 +16,7 @@ class _SignupPageState extends State<SignupPage> {
 
   final email = TextEditingController();
   final password = TextEditingController();
-  final PasswordConfrim = TextEditingController();
+  final PasswordConfirm = TextEditingController();
 
   @override
   void initState() {
@@ -44,7 +45,7 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 10),
               textfield(password, _focusNode2, 'password', Icons.password),
               const SizedBox(height: 10),
-              textfield(PasswordConfrim, _focusNode3, 'Confirm password', Icons.password),
+              textfield(PasswordConfirm, _focusNode3, 'Confirm password', Icons.password),
               const SizedBox(height: 8),
               account(),
               const SizedBox(height: 20),
@@ -83,7 +84,9 @@ class _SignupPageState extends State<SignupPage> {
 
   Widget signUpBotton() {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        AuthRemote().register(email.text, password.text, PasswordConfirm.text);
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Container(
@@ -160,7 +163,7 @@ class _SignupPageState extends State<SignupPage> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/7.png'),
+            image: AssetImage('assets/images/5.png'),
             fit: BoxFit.cover,
           ),
         ),
