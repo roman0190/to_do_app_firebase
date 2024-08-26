@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app_firebase/data/firestore_data.dart';
+import 'package:to_do_app_firebase/model/notes_model.dart';
 import 'package:to_do_app_firebase/screens/edit_note_page.dart';
 
 class TaskWidgets extends StatefulWidget {
-  const TaskWidgets({super.key});
+  Note _note;
+  TaskWidgets(this._note, {super.key});
 
   @override
   State<TaskWidgets> createState() => _TaskWidgetsState();
 }
 
 class _TaskWidgetsState extends State<TaskWidgets> {
-  bool isDone = false;
   @override
   Widget build(BuildContext context) {
+    bool isDone = widget._note.isDone;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       child: Container(
@@ -47,11 +50,17 @@ class _TaskWidgetsState extends State<TaskWidgets> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(
-                              "Title",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
+                            SizedBox(
+                              height: 20,
+                              width: 190,
+                              child: Text(
+                                widget._note.title,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             SizedBox(
@@ -62,18 +71,25 @@ class _TaskWidgetsState extends State<TaskWidgets> {
                                     setState(() {
                                       isDone = !isDone;
                                     });
+                                    FirestoreData().isDone(widget._note.id, isDone);
                                   }),
                             ),
                           ],
                         ),
                       ),
                       const SizedBox(height: 5),
-                      Text(
-                        "SubTitle",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.grey.shade400,
+                      SizedBox(
+                        height: 20,
+                        width: 220,
+                        child: Text(
+                          widget._note.subtitle,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey.shade400,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       const Spacer(),
@@ -111,9 +127,9 @@ class _TaskWidgetsState extends State<TaskWidgets> {
                   const SizedBox(
                     width: 10,
                   ),
-                  const Text(
-                    "Time",
-                    style: TextStyle(
+                  Text(
+                    widget._note.time,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
@@ -128,7 +144,7 @@ class _TaskWidgetsState extends State<TaskWidgets> {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const EditNotePage(),
+                  builder: (context) => EditNotePage(widget._note),
                 ),
               );
             },
@@ -169,10 +185,10 @@ class _TaskWidgetsState extends State<TaskWidgets> {
     return Container(
       height: 130,
       width: 100,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.white,
         image: DecorationImage(
-          image: AssetImage('assets/images/1.png'),
+          image: AssetImage('assets/images/${widget._note.image}.png'),
           fit: BoxFit.cover,
         ),
       ),

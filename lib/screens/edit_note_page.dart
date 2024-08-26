@@ -1,20 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app_firebase/data/firestore_data.dart';
+import 'package:to_do_app_firebase/model/notes_model.dart';
 
 class EditNotePage extends StatefulWidget {
-  const EditNotePage({super.key});
+  final Note _note;
+  const EditNotePage(this._note, {super.key});
 
   @override
   State<EditNotePage> createState() => _EditNotePageState();
 }
 
 class _EditNotePageState extends State<EditNotePage> {
-  final title = TextEditingController();
-  final subtitle = TextEditingController();
+  late TextEditingController title;
+  late TextEditingController subtitle;
 
-  FocusNode _focusNode1 = FocusNode();
-  FocusNode _focusNode2 = FocusNode();
+  final FocusNode _focusNode1 = FocusNode();
+  final FocusNode _focusNode2 = FocusNode();
 
-  int selectedIndex = 0;
+ late int selectedIndex ;
+
+  @override
+  void initState() {
+    super.initState();
+    title = TextEditingController(text: widget._note.title);
+    subtitle = TextEditingController(text: widget._note.subtitle);
+    selectedIndex = widget._note.image; 
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +54,13 @@ class _EditNotePageState extends State<EditNotePage> {
         ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
+            FirestoreData().upadateNote(widget._note.id,selectedIndex , title.text, subtitle.text);
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.greenAccent,
             minimumSize: const Size(170, 48),
           ),
-          child: Text("Save Task"),
+          child:const Text("Save Task"),
         ),
         ElevatedButton(
           onPressed: () {
@@ -58,7 +70,7 @@ class _EditNotePageState extends State<EditNotePage> {
             backgroundColor: Colors.redAccent,
             minimumSize: const Size(170, 48),
           ),
-          child: Text("Cancel"),
+          child: const Text("Cancel"),
         )
       ],
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app_firebase/data/firestore_data.dart';
 
 class AddNotePage extends StatefulWidget {
   const AddNotePage({super.key});
@@ -11,8 +12,8 @@ class _AddNotePageState extends State<AddNotePage> {
   final title = TextEditingController();
   final subtitle = TextEditingController();
 
-  FocusNode _focusNode1 = FocusNode();
-  FocusNode _focusNode2 = FocusNode();
+  final FocusNode _focusNode1 = FocusNode();
+  final FocusNode _focusNode2 = FocusNode();
 
   int selectedIndex = 0;
 
@@ -42,13 +43,14 @@ class _AddNotePageState extends State<AddNotePage> {
       children: [
         ElevatedButton(
           onPressed: () {
+            FirestoreData().addNote(title.text, subtitle.text, selectedIndex);
             Navigator.pop(context);
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.greenAccent,
             minimumSize: const Size(170, 48),
           ),
-          child: Text("Add Task"),
+          child: const Text("Add Task"),
         ),
         ElevatedButton(
           onPressed: () {
@@ -58,7 +60,7 @@ class _AddNotePageState extends State<AddNotePage> {
             backgroundColor: Colors.redAccent,
             minimumSize: const Size(170, 48),
           ),
-          child: Text("Cancel"),
+          child: const Text("Cancel"),
         )
       ],
     );
@@ -90,7 +92,7 @@ class _AddNotePageState extends State<AddNotePage> {
               child: Column(
                 children: [
                   Image.asset(
-                    'assets/images/${index}.png',
+                    'assets/images/$index.png',
                     fit: BoxFit.cover,
                   ),
                 ],

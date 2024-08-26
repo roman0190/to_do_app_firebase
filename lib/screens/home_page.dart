@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:to_do_app_firebase/data/firestore_data.dart';
 import 'package:to_do_app_firebase/screens/add_note_page.dart';
+import 'package:to_do_app_firebase/widgets/stream_note.dart';
 import 'package:to_do_app_firebase/widgets/task_widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,11 +50,19 @@ class _HomePageState extends State<HomePage> {
             }
             return true;
           },
-          child: ListView.builder(
-            itemCount: 20,
-            itemBuilder: (context, index) {
-              return const TaskWidgets();
-            },
+          child: Column(
+            children: [
+              StreamNote(false),
+              Text(
+                "Done",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey.shade500,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              StreamNote(true),
+            ],
           ),
         ),
       ),
