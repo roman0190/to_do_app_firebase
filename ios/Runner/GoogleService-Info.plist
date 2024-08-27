@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyA6ggf1msl3M9iqJDCEux0IYdGLIcge7WQ</string>
+	<string>AIzaSyCxOd6erUEtbLUgvn8SPAAX2HpfW0yc8WA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>814035918281</string>
+	<string>1077973939949</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.toDoAppFirebase</string>
+	<string>com.example.toDoApp</string>
 	<key>PROJECT_ID</key>
-	<string>to-do-app-firebase-b3d75</string>
+	<string>my-app-ef670</string>
 	<key>STORAGE_BUCKET</key>
-	<string>to-do-app-firebase-b3d75.appspot.com</string>
+	<string>my-app-ef670.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:814035918281:ios:31058e65f68ff879bd5c18</string>
+	<string>1:1077973939949:ios:2c7881d3e1ce8c21bdfee4</string>
 </dict>
 </plist>

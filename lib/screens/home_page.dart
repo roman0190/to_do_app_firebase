@@ -1,10 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:to_do_app_firebase/data/firestore_data.dart';
 import 'package:to_do_app_firebase/screens/add_note_page.dart';
 import 'package:to_do_app_firebase/widgets/stream_note.dart';
-import 'package:to_do_app_firebase/widgets/task_widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool show = false;
+  bool show = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

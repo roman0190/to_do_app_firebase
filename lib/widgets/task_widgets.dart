@@ -45,13 +45,13 @@ class _TaskWidgetsState extends State<TaskWidgets> {
                     children: [
                       const SizedBox(height: 15),
                       SizedBox(
-                        height: 20,
+                        height: 30,
                         width: 240,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 30,
                               width: 190,
                               child: Text(
                                 widget._note.title,

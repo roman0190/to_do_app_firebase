@@ -1,16 +1,13 @@
-# to_do_app_firebase
 
-A new Flutter project.
 
-## Getting Started
+## Home Page
 
-This project is a starting point for a Flutter application.
+<img src="Simulator Screenshot - iPhone 13 Pro Max - 2024-08-27 at 17.53.06.png" alt="Home Page" style="width: 100%; max-width: 390px; height: auto;"/>
 
-A few resources to get you started if this is your first Flutter project:
+## Add Task
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img src="Simulator Screenshot - iPhone 13 Pro Max - 2024-08-27 at 17.53.16.png" alt="Add Task" style="width: 100%; max-width: 390px; height: auto;"/>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Edit Task
+
+<img src="Simulator Screenshot - iPhone 13 Pro Max - 2024-08-27 at 17.47.39.png" alt="Edit Task" style="width: 100%; max-width: 390px; height: auto;"/>
