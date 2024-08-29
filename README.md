@@ -2,7 +2,7 @@
 The To-Do App is a Flutter-based application integrated with Firebase for seamless task management and real-time synchronization. The app provides a user-friendly interface that allows you to efficiently view and organize your tasks, whether they are completed or pending. Users can easily add new tasks through a simple input form, which includes options to set due times and descriptions. The app also supports editing existing tasks, enabling updates to their details and schedules. With Firebase integration, your tasks are stored securely and synchronized across devices in real time, ensuring that your to-do list is always up-to-date and accessible from anywhere. This combination of Flutter and Firebase delivers a robust and dynamic task management experience.
 
 ## Video
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7234586629871443968" height="1369" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+<a href="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7234586629871443968"></a>
 
 ## Home Page
 
